@@ -1,0 +1,118 @@
+/* Arrière-plan flou */
+.background-blur {
+    background-image: url(images/logo.png.jpg); 
+    background-size: 62pc;
+    background-position: center;
+    filter: blur(6px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -2;
+  }
+  
+  .background-blur::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* voile sombre optionnel */
+  }
+  /* Contenu principal */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 0rem;
+    min-height: 100vh;
+  }
+  
+  /* Style simple */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  
+  nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  /* === Contenu === */
+.content {
+    padding: 60px 30px;
+    color: white;
+    text-align: center;
+  }
+  
+  .content h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  /* === Formulaire === */
+  .search-form {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .search-form input, .search-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .search-form input {
+    flex: 1 1 200px;
+  }
+  
+  .search-form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .search-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* === Résultats === */
+  .trajets {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .trajet {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #000;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .trajet a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .trajet a:hover {
+    text-decoration: underline;
+  }
+  

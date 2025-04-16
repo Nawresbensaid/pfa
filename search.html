@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yallacovoit - search</title>
+  <link rel="stylesheet" href="search.css" />
+</head>
+<body>
+  <!-- Arrière-plan flou -->
+  <div class="background-blur"></div>
+  <!-- Contenu principal -->
+    <div class="content">
+        <header>
+          <img src="images/yallayalla.png">
+          <!--<h1>YallaCovoit</h1> -->
+          <nav>
+            <a href="index.html">Accueil</a>
+          </nav>
+        </header>
+     <!-- === Contenu === -->
+  <div class="content">
+    <h1>Recherche d'un Trajet</h1>
+
+    <!-- === Formulaire de recherche === -->
+    <form id="searchForm" class="search-form">
+      <input type="text" id="depart" placeholder="Point de départ" required>
+      <input type="text" id="arrivee" placeholder="Point d’arrivée" required>
+      <input type="date" id="date" required>
+      <button type="submit">Rechercher</button>
+    </form>
+
+    <!-- === Zone des résultats === -->
+    <div id="resultats" class="trajets">
+      <!-- Résultats dynamiques ici -->
+    </div>
+  </div>
+
+  <!-- === Script JS === -->
+  <script>
+    const form = document.getElementById("searchForm");
+    const resultats = document.getElementById("resultats");
+
+    const trajetsDispo = [
+      {
+        conducteur: "Ahmed",
+        de: "Tunis",
+        vers: "Sousse",
+        date: "2025-04-13",
+      },
+      {
+        conducteur: "Mariem",
+        de: "Nabeul",
+        vers: "Manouba",
+        date: "2025-04-14",
+    },
+      {
+        conducteur: "Yassine",
+        de: "Tunis",
+        vers: "Ariana",
+        date: "2025-04-13",
+      },
+    ];
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const depart = document.getElementById("depart").value.trim().toLowerCase();
+      const arrivee = document.getElementById("arrivee").value.trim().toLowerCase();
+      const date = document.getElementById("date").value;
+
+      const resultatsFiltres = trajetsDispo.filter(t =>
+        t.de.toLowerCase().includes(depart) &&
+        t.vers.toLowerCase().includes(arrivee) &&
+        t.date === date
+      );
+
+      resultats.innerHTML = "";
+
+      if (resultatsFiltres.length > 0) {
+        resultatsFiltres.forEach(t => {
+          resultats.innerHTML += `
+            <div class="trajet">
+              <p><strong>Conducteur:</strong> ${t.conducteur}</p>
+              <p><strong>De:</strong> ${t.de} → <strong>Vers:</strong> ${t.vers}</p>
+              <p><strong>Date:</strong> ${t.date}</p>
+              <a href="trip-details.html">Voir détails</a>
+            </div>
+          `;
+        });
+    } else {
+        resultats.innerHTML = <p style="color:white;">Aucun trajet trouvé 😥</p>;
+      }
+    });
+  </script>
+</body>
+</html>
+
+

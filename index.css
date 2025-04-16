@@ -1,0 +1,132 @@
+/* Arrière-plan flou */
+.background-blur {
+  background-image: url(images/logo.png.jpg); 
+  background-size: 62pc;
+  background-position: center;
+  filter: blur(6px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -2;
+}
+
+.background-blur::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* voile sombre optionnel */
+}
+
+/* Contenu principal */
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding: 0rem;
+  min-height: 100vh;
+}
+
+/* Style simple */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+
+nav a {
+  margin: 0 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.hero h2 {
+  font-size: 6rem;
+  margin-top: 19rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.hero p {
+  font-size: 2rem;
+  margin-top: 0;
+}
+/* footer */
+/* Footer Responsive + Styling clean */
+/* Footer moderne style image */
+#footer {
+background-color: rgba(0, 0, 0, 0.2); 
+color: #f1f1f1;
+padding: 30px 20px;
+font-size: 14px;
+z-index: 2;
+}
+
+.footer-container {
+max-width: 1200px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+
+/* Gauche : logo + slogan */
+.footer-left {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.footer-logo {
+width: 50px;
+}
+
+.slogan {
+font-size: 12px;
+text-transform: uppercase;
+line-height: 1.2;
+color: #ddd;
+}
+
+.footer-center {
+text-align: center;
+flex: 1;
+}
+
+.footer-right a img {
+width: 25px;
+margin-left: 15px;
+transition: transform 0.3s ease;
+}
+
+.footer-right a img:hover {
+transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.footer-container {
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-right {
+  justify-content: center;
+}
+
+.footer-right a img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+}
+  
+ 
+  
+  
+  
+  
